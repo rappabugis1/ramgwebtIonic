@@ -1,0 +1,107 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent">
+  <ion-row class="meniGlavni" >
+    <ion-col>
+        <img src="assets/imgs/logo.png" style="max-height:80px"/>
+    </ion-col>
+    
+    <ion-col text-end>
+        <button ion-button (click)="meniClick()" color="light" style="height:55px; width:55px;">
+            <ion-icon name="menu" flex></ion-icon>
+        </button>
+    </ion-col>
+    
+  </ion-row>
+  
+  <ion-row *ngIf="meniSakriven">
+    <button col-3  (click)="navBack()">
+        <ion-icon name="home" flex></ion-icon>
+        Home
+    </button>
+    <button col-3  (click)="scroll()">
+        <ion-icon name="basket" flex></ion-icon>
+        Products
+    </button>
+    <button col-3  (click)="scrollBottom()" >
+        <ion-icon name="call" flex></ion-icon>
+        Contact Us
+      </button>
+    <ion-searchbar col-3></ion-searchbar>
+  </ion-row>
+ 
+</ion-header>
+
+<ion-content #pageContent fullscreen style="background-color: #e6eaed">
+    <ion-grid class="contentGrid" >
+        <ion-col col-12 col-sm-10>
+                <ion-card>
+                        <ion-col col-12 col-sm-6 >
+                                <ion-slides pager loop >
+                                    <ion-slide *ngFor="let url of productImgs">
+                                        <img src="{{url}}"/>
+                                    </ion-slide>
+                                </ion-slides>
+                            </ion-col>
+        
+                            <ion-col col-12 col-sm-6 >
+                                <ion-card-content>
+                                    <h3>{{product.name}}</h3>
+                                    <h4>{{product.price}} $/Unit</h4>
+                                    <p>Contract period: <b>{{product.cont_period}}</b></p>
+                                    <p>{{product.desc}}</p>
+                                </ion-card-content>
+                            </ion-col>
+                </ion-card>
+        </ion-col>
+        
+        
+        <ion-row >
+                <ion-card nopadding (click)="proslijediProduct(prod)" *ngFor="let prod of products | async">
+                        <ion-row>
+                            <ion-col col-6 offset-3 text-center>
+                                <img  src="{{prod.imgUrls}}" />
+                            </ion-col>
+                           </ion-row>
+                        <ion-card-content >
+                          <ion-card-title>
+                            {{prod.name}}
+                          </ion-card-title>
+                          <ion-row>
+                            <ion-col>
+                              <h3>Price per unit:</h3>
+                              <p>{{prod.price}} $</p>
+                            </ion-col>
+                            <ion-col>
+                                <h3>Investment length:</h3>
+                                <p>{{prod.cont_period}} years</p>
+                            </ion-col>
+                          </ion-row>
+                        </ion-card-content>
+                      </ion-card>
+        </ion-row>
+        
+    </ion-grid>
+
+    <div style="padding: 50px"></div>
+
+    <div class="footerContent" >
+            <div style="padding:5px"></div>
+            <ion-list text-center>
+                <h1 class="contact-us-header">Get In Touch</h1>
+                <p>
+                    <ion-icon name="pin" flex></ion-icon>
+                    Jl. Matraman Raya No.67, RT.5/RW.4, Palmeriam, Matraman
+                </p>
+                <p>
+                    <ion-icon name="call" flex></ion-icon>
+                    (IND) +62812 8612 1907 (UAE) +971501778234
+                </p>
+                <p>
+                    <ion-icon name="mail" flex></ion-icon>
+                    amappa97@gmail.com
+                </p>
+              </ion-list>
+          <p text-center class="p" style="color: white"> Copyright © 2018  || All Rights Reserved</p> 
+        </div>
+</ion-content>
+
+

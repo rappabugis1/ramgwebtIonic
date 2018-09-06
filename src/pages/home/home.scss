@@ -1,0 +1,79 @@
+page-home {
+
+}
+
+ion-row.meniGlavni{
+    height: 75px;
+    padding-left: 3px;
+    padding-right: 3px;
+    background: #392614; 
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+ion-grid.contentGrid{
+    max-width:700px;
+}
+
+.productSlides{
+    max-width: 750;
+}
+
+div.contentContainer{
+    max-width: 70;
+}
+
+div.footerContent{
+    background-color: #83b67d;
+}
+
+img.slider{
+    height: 600px;
+    max-width: none;
+}
+
+p.p{
+    margin-bottom: 0;
+    background: #392614; 
+    color: white;
+}
+div.slides{
+    left: 50%;
+    margin-left: -100px;
+}
+ion-slides.productSlides{
+    height: 380px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+ion-slides.slider{
+    height:590px !important;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0 4px 10px 0;
+    
+}
+
+ion-card.home{
+    background-color: rgb(255, 255, 255);
+}
+
+.text-block {
+    position: absolute;
+    opacity: 0.9;
+    bottom: 30px;
+    right: 30px;
+    background-color: #83b67d;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cardImg{
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+  
