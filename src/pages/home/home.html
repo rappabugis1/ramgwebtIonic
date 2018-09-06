@@ -66,33 +66,46 @@
 
   <div style="padding: 10px"></div>
   <h1 nopadding text-center>Products That You Can Invest In</h1>
+  
+  <ion-row>
+    <ion-col col-0 col-sm-1 style="text-align: center" >
+      <ion-icon [hidden]="450 > platW" name="arrow-dropleft-circle" (click)="buttonLijevo()" class="navSlideButton"></ion-icon>
+    </ion-col>
+
+    <ion-col col-12 col-sm-10>
+      <ion-slides #productSlides class="productSlides" [slidesPerView]="slidesPerView" >
+        <ion-slide  *ngFor="let product of products | async" (click)="proslijediProduct(product)">
+            <ion-card nopadding class="cardProduct" >
+                <ion-row>
+                    <ion-col col-6 offset-3 text-center>
+                      <img class="product" src="{{product.imgUrls}}" />
+                  </ion-col>
+                  </ion-row>
+              <ion-card-content >
+                <ion-card-title>
+                  {{product.name}}
+                </ion-card-title>
+                <ion-row>
+                  <ion-col>
+                    <h3>Price per unit:</h3>
+                    <p>{{product.price}} $</p>
+                  </ion-col>
+                  <ion-col>
+                      <h3>Investment length:</h3>
+                      <p>{{product.cont_period}} years</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+    </ion-col>
+
+    <ion-col col-0 col-sm-1 >
+      <ion-icon [hidden]="450 > platW" name="arrow-dropright-circle" (click)="buttonDesno()" class="navSlideButton" ></ion-icon>
+    </ion-col>
     
-  <ion-slides class="productSlides" [slidesPerView]="slidesPerView" >
-    <ion-slide  *ngFor="let product of products | async" (click)="proslijediProduct(product)">
-        <ion-card nopadding class="cardProduct" >
-            <ion-row>
-                <ion-col col-6 offset-3 text-center>
-                  <img class="product" src="{{product.imgUrls}}" />
-              </ion-col>
-              </ion-row>
-          <ion-card-content >
-            <ion-card-title>
-              {{product.name}}
-            </ion-card-title>
-            <ion-row>
-              <ion-col>
-                <h3>Price per unit:</h3>
-                <p>{{product.price}} $</p>
-              </ion-col>
-              <ion-col>
-                  <h3>Investment length:</h3>
-                  <p>{{product.cont_period}} years</p>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
+  </ion-row>  
 
 </div>
   
