@@ -1,10 +1,11 @@
-RAM General Trading & I/E <b/>
-Sep 2018 – Present<b/>
-<b/>
-Project descriptionProject ongoing. Ionic Framework based App/Website for RAMGT & E/I based in Indonesia.<b/>
-<b/>
+RAM General Trading & I/E <br/>
+Sep 2018 – Present<br/>
+<br/>
+Project description <br/>
+Project ongoing. Ionic Framework based App/Website for RAMGT & E/I based in Indonesia.<br/>
+<br/>
 -Hybrid App using Ionic Angular Framework that serves as a website and an app
-<b/>
+<br/>
 -Designed in HTML5, Sass, TypeScript and Angular
-<b/>
+<br/>
 -Implements Google Firebase NoSql Firestore database for product storing
