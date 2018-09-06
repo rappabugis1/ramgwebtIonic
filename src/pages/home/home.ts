@@ -1,4 +1,4 @@
-import { Component , ViewChild} from '@angular/core';
+import { Component , ViewChild, HostListener} from '@angular/core';
 import { NavController, Platform, Content, Slides } from 'ionic-angular';
 
 import {ScrollHideConfig} from '../../directives/headerhider';
@@ -19,7 +19,7 @@ export class HomePage {
   meniSakriven:boolean =false;
   public products;
   slidesPerView :number=1;
-
+  btnShid:boolean=true;
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 75 };
 
   slide1 ; slide2 ; slide3 ;
@@ -27,25 +27,35 @@ export class HomePage {
   constructor(public navCtrl: NavController,private fireStoreProvider: FirestoreProvider, public platform:Platform) {
     this.products = this.fireStoreProvider.getProductList().valueChanges();
     this.platW=this.platform.width();
+    this.checkResize();
+  }
 
-    if(this.platW > 750)
-    this.slidesPerView=3;
-    else
-      if(this.platW > 450)
-      this.slidesPerView=2;
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.platW=event.target.innerWidth;
+    this.checkResize();
+  }
 
-
-    if(this.platW > 450) {
+  checkResize(){
+    if(this.platW > 550) {
+      this.btnShid=false;
       this.slide1="assets/imgs/slide1.jpg";
       this.slide2="assets/imgs/hope.jpg";
       this.slide3="assets/imgs/lopata.jpg";
+      if(this.platW > 750)
+        this.slidesPerView=3;
+        else
+        this.slidesPerView=2;
     }else{
+      this.slidesPerView=1;
+      this.btnShid=true;
       this.slide1="assets/imgs/slide1-small.jpg";
       this.slide2="assets/imgs/hope-small.jpg";
       this.slide3="assets/imgs/lopata-small.jpg";
     }
   }
 
+  
   scrollBottom(){
     if(this.content._scroll) this.content.scrollToBottom(0);
   }
@@ -55,7 +65,7 @@ export class HomePage {
   }
 
   scroll(){
-    if(this.content._scroll) this.content.scrollTo(0,650,0);
+    if(this.content._scroll) this.content.scrollTo(0,550,0);
   }
 
   hack(val){
