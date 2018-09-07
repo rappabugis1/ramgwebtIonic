@@ -86,7 +86,7 @@ export class HomePage {
     this.fireStoreProvider.getProductListObs().valueChanges()
     .subscribe(products => {
         this.productsArray= products;
-        this.navCtrl.push(ProductPage, {prod: prod,    products:this.productsArray });
+        this.navCtrl.push(ProductPage, {prod: prod, products:this.productsArray });
     });
   }
 

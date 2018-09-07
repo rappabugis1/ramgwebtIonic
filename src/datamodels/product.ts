@@ -4,4 +4,6 @@ export class Product {
     imgUrls: Array<URL>;
     name: string;
     price: number;
+    units: number;
+    units_left: number;
 }

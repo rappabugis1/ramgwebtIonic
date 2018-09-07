@@ -31,45 +31,10 @@
 </ion-header>
 
 <ion-content #pageContent fullscreen style="background-color: #e6eaed">
-    <ion-grid class="contentGrid" >
-        <ion-col col-12 col-sm-10>
-                <ion-card>
-                        <ion-col col-12 col-sm-6 >
-                                <ion-slides pager loop >
-                                    <ion-slide *ngFor="let url of productImgs">
-                                        <img src="{{url}}"/>
-                                    </ion-slide>
-                                </ion-slides>
-                            </ion-col>
-        
-                            <ion-col col-12 col-sm-6 >
-                                <ion-card-content>
-                                    <h3>{{product.name}}</h3>
-                                    <h4>{{product.price}} $/Unit</h4>
-                                    <p>Contract period: <b>{{product.cont_period}}</b></p>
-                                    <p>{{product.desc}}</p>
-                                </ion-card-content>
-                            </ion-col>
-                </ion-card>
-        </ion-col>
-        
-        <ion-col col12 col-sm-2>
-            <ion-list nopadding (click)="proslijediProduct(prod)" *ngFor="let prod of products"  >
-                <ion-row>
-                    <ion-col col-6 offset-3 text-center>
-                        <ion-avatar  item-start><img class="avatar" src="{{prod.imgUrls}}"/></ion-avatar>
-                    </ion-col>
-                    {{prod.name}}
-                   </ion-row>  
-         </ion-list>
-        </ion-col>
-                
-        
-        
-    </ion-grid>
+    
+    
 
     <div style="padding: 50px"></div>
-
     <div class="footerContent" >
             <div style="padding:5px"></div>
             <ion-list text-center>
@@ -88,7 +53,7 @@
                 </p>
               </ion-list>
           <p text-center class="p" style="color: white"> Copyright © 2018  || All Rights Reserved</p> 
-        </div>
+    </div>
 </ion-content>
 
 
