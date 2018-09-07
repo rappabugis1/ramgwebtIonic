@@ -10,6 +10,7 @@ import { ScrollHideConfig } from '../../directives/headerhider';
 export class ProductPage {
   @ViewChild(Content) content: Content;
 
+
   meniSakriven:boolean= false;
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 75 };
 

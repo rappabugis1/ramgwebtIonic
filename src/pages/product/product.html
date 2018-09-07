@@ -53,31 +53,18 @@
                 </ion-card>
         </ion-col>
         
+        <ion-col col12 col-sm-2>
+            <ion-list nopadding (click)="proslijediProduct(prod)" *ngFor="let prod of products"  >
+                <ion-row>
+                    <ion-col col-6 offset-3 text-center>
+                        <ion-avatar  item-start><img class="avatar" src="{{prod.imgUrls}}"/></ion-avatar>
+                    </ion-col>
+                    {{prod.name}}
+                   </ion-row>  
+         </ion-list>
+        </ion-col>
+                
         
-        <ion-row >
-                <ion-card nopadding (click)="proslijediProduct(prod)" *ngFor="let prod of products | async">
-                        <ion-row>
-                            <ion-col col-6 offset-3 text-center>
-                                <img  src="{{prod.imgUrls}}" />
-                            </ion-col>
-                           </ion-row>
-                        <ion-card-content >
-                          <ion-card-title>
-                            {{prod.name}}
-                          </ion-card-title>
-                          <ion-row>
-                            <ion-col>
-                              <h3>Price per unit:</h3>
-                              <p>{{prod.price}} $</p>
-                            </ion-col>
-                            <ion-col>
-                                <h3>Investment length:</h3>
-                                <p>{{prod.cont_period}} years</p>
-                            </ion-col>
-                          </ion-row>
-                        </ion-card-content>
-                      </ion-card>
-        </ion-row>
         
     </ion-grid>
 

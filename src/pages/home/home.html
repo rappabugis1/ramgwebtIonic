@@ -74,7 +74,7 @@
 
     <ion-col col-12 col-sm-10>
       <ion-slides #productSlides class="productSlides" [slidesPerView]="slidesPerView" >
-        <ion-slide  *ngFor="let product of products | async" (click)="proslijediProduct(product)">
+        <ion-slide  *ngFor="let product of productsObs | async" (click)="proslijediProduct(product)">
             <ion-card nopadding class="cardProduct" >
                 <ion-row>
                     <ion-col col-6 offset-3 text-center>

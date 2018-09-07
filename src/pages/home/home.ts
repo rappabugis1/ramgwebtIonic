@@ -5,6 +5,7 @@ import {ScrollHideConfig} from '../../directives/headerhider';
 
 import {FirestoreProvider} from '../../providers/providers-data-firestore/providers-data-firestore';
 import { ProductPage } from '../product/product';
+import { Product } from '../../datamodels/product';
 
 @Component({
   selector: 'page-home',
@@ -16,8 +17,9 @@ export class HomePage {
   @ViewChild('productSlides') slides: Slides;
 
   platW;
+  productsObs;
   meniSakriven:boolean =false;
-  public products;
+  productsArray;
   slidesPerView :number=1;
   btnShid:boolean=true;
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 75 };
@@ -25,11 +27,11 @@ export class HomePage {
   slide1 ; slide2 ; slide3 ;
 
   constructor(public navCtrl: NavController,private fireStoreProvider: FirestoreProvider, public platform:Platform) {
-    this.products = this.fireStoreProvider.getProductList().valueChanges();
+    this.productsObs = this.fireStoreProvider.getProductListObs().valueChanges();
     this.platW=this.platform.width();
     this.checkResize();
   }
-
+        
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.platW=event.target.innerWidth;
@@ -77,11 +79,15 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.products = this.fireStoreProvider.getProductList().valueChanges();
+    this.productsObs = this.fireStoreProvider.getProductListObs().valueChanges();
   }
 
   proslijediProduct(prod){
-    this.navCtrl.push(ProductPage, {prod: prod, products:this.products });
+    this.fireStoreProvider.getProductListObs().valueChanges()
+    .subscribe(products => {
+        this.productsArray= products;
+        this.navCtrl.push(ProductPage, {prod: prod,    products:this.productsArray });
+    });
   }
 
   buttonDesno(){
